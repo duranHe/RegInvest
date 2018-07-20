@@ -14,9 +14,7 @@ class CSVReader {
   def parseCSV() = {
     val in = new FileReader(BTCDailyCSVPath)
     val records = CSVFormat.RFC4180.withHeader(BTCDailyCSVHeader: _*).parse(in)
-    var counter = 0
     records.asScala.foreach(record => println(record.get(CryptoHeader.Change.toString)))
-    println(counter)
   }
 }
 
